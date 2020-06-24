@@ -28,7 +28,6 @@ exports.registerUser = functions.https.onCall(async (data, context) => {
 
         await admin.auth().setCustomUserClaims(userRecord.uid, customClaims);
         return userRecord.toJSON();
-
     } catch (e) {
         throw new functions.https.HttpsError('signup-failed', JSON.stringify(error, undefined, 2));
     }

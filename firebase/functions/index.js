@@ -3,7 +3,7 @@ const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
 module.exports = {
-    ...require("./register.js"),
-    ...require("./sync.js"),
-    ...require("./del.js"),
+    ...require("./account/register.js"),
+    ...require("./account/sync.js"),
+    ...require("./account/del.js"),
   };

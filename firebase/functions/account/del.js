@@ -1,5 +1,5 @@
 const functions = require("firebase-functions");
-const client = require("./graphql.js");
+const {client} = require("../graphql/graphql_client");
 
 exports.processDelete = functions.auth.user().onDelete(async (user) => {
     const mutation = `mutation($id: String!) {
@@ -15,6 +15,5 @@ exports.processDelete = functions.auth.user().onDelete(async (user) => {
         return data;
     } catch (e) {
         throw new functions.https.HttpsError('sync-failed');
-
     }
 });
