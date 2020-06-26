@@ -5,7 +5,6 @@ import 'package:flutterserverlessdemo/repositories/session_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'login_event.dart';
-
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
@@ -27,6 +26,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       yield LoginInProgress();
       final auth = await _sessionRepository.login(event.email, event.password);
+      final token = await auth.user.getIdToken();
       yield LoginSuccess();
     } catch (e) {
       yield LoginFailure();

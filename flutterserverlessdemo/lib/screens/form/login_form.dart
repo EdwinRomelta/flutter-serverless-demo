@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/login/login_bloc.dart';
+import 'package:flutterserverlessdemo/main.dart';
 import 'package:flutterserverlessdemo/repositories/session_repository.dart';
 
 class LoginForm extends StatefulWidget {
@@ -15,8 +16,13 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) => BlocConsumer<LoginBloc, LoginState>(
-        bloc: _loginBloc,
-        listener: (context, state) {},
+    bloc: _loginBloc,
+        listener: (context, state) {
+          if (state is LoginSuccess) {
+            Navigator.of(context).pushNamed(HOME);
+          }
+        },
+        buildWhen: (previous, current) => current is LoginInitial,
         builder: (context, state) => Center(
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 25.0),
