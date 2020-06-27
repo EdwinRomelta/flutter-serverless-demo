@@ -4,22 +4,22 @@ import 'package:flutterserverlessdemo/blocs/login/login_bloc.dart';
 import 'package:flutterserverlessdemo/main.dart';
 import 'package:flutterserverlessdemo/repositories/session_repository.dart';
 
-class LoginForm extends StatefulWidget {
+class LoginContent extends StatefulWidget {
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _LoginContentState createState() => _LoginContentState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _LoginContentState extends State<LoginContent> {
   final _loginBloc = LoginBloc(SessionRepository());
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) => BlocConsumer<LoginBloc, LoginState>(
-    bloc: _loginBloc,
+        bloc: _loginBloc,
         listener: (context, state) {
           if (state is LoginSuccess) {
-            Navigator.of(context).pushNamed(HOME);
+            Navigator.of(context).pushReplacementNamed(HOME);
           }
         },
         buildWhen: (previous, current) => current is LoginInitial,

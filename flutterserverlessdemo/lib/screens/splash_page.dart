@@ -25,10 +25,10 @@ class _SplashPageState extends State<SplashPage> {
         bloc: _sessionBloc,
         listener: (context, state) {
           if (state is SessionSuccess) {
-            Navigator.of(context).pushNamed(HOME);
+            Navigator.of(context).pushReplacementNamed(HOME);
           }
           if (state is SessionFailure) {
-            Navigator.of(context).pushNamed(LOGIN);
+            Navigator.of(context).pushReplacementNamed(LOGIN);
           }
         },
         child: Center(

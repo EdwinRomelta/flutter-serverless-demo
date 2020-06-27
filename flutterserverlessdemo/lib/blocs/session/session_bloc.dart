@@ -5,7 +5,6 @@ import 'package:flutterserverlessdemo/repositories/session_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'session_event.dart';
-
 part 'session_state.dart';
 
 class SessionBloc extends Bloc<SessionEvent, SessionState> {
@@ -26,7 +25,7 @@ class SessionBloc extends Bloc<SessionEvent, SessionState> {
   Stream<SessionState> _mapSessionCheckToState(SessionCheck event) async* {
     try {
       yield SessionInProgress();
-      final user = await _sessionRepository.checkUser();
+      final user = await _sessionRepository.startUser();
       if (user != null) {
         yield SessionSuccess();
       } else {

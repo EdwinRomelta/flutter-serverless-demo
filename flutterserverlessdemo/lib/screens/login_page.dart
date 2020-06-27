@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterserverlessdemo/screens/form/login_form.dart';
+import 'package:flutterserverlessdemo/screens/contents/login_content.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
           padding: constraints.maxWidth < 500
               ? EdgeInsets.zero
               : EdgeInsets.all(30.0),
-          child: LoginForm(),
+          child: LoginContent(),
         );
       }),
     );

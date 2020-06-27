@@ -1,0 +1,15 @@
+query AllPost {
+    posts {
+        user {
+            avatar_url
+            email
+            id
+            username
+        }
+        created_at
+        description
+        id
+        image_url
+        updated_at
+    }
+}

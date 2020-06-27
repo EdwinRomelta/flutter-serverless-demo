@@ -26,8 +26,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       yield LoginInProgress();
       final auth = await _sessionRepository.login(event.email, event.password);
-      final token = await auth.user.getIdToken();
-      yield LoginSuccess();
+      if (auth != null) {
+        yield LoginSuccess();
+      } else {
+        yield LoginFailure();
+      }
     } catch (e) {
       yield LoginFailure();
     }
