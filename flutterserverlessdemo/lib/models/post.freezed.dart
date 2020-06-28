@@ -8,7 +8,6 @@ part of 'post.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 Post _$PostFromJson(Map<String, dynamic> json) {
   return _Post.fromJson(json);
 }
@@ -35,22 +34,17 @@ const $Post = _$PostTearOff();
 
 mixin _$Post {
   String get id;
-
   String get description;
-
   String get imageUrl;
-
   DateTime get createdAt;
 
   Map<String, dynamic> toJson();
-
   $PostCopyWith<Post> get copyWith;
 }
 
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-
   $Res call(
       {String id, String description, String imageUrl, DateTime createdAt});
 }
@@ -59,7 +53,6 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
   _$PostCopyWithImpl(this._value, this._then);
 
   final Post _value;
-
   // ignore: unused_field
   final $Res Function(Post) _then;
 
@@ -84,7 +77,6 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {String id, String description, String imageUrl, DateTime createdAt});
@@ -201,16 +193,12 @@ abstract class _Post implements Post {
 
   @override
   String get id;
-
   @override
   String get description;
-
   @override
   String get imageUrl;
-
   @override
   DateTime get createdAt;
-
   @override
   _$PostCopyWith<_Post> get copyWith;
 }

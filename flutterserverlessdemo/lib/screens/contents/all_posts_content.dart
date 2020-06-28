@@ -28,8 +28,10 @@ class _AllPostsContentState extends State<AllPostsContent> {
             itemCount: state.posts.length,
             itemBuilder: (context, index) {
               final post = state.posts[index];
-              return ListTile(
-                subtitle: Text(post.description),
+              return Card(
+                child: ListTile(
+                  subtitle: Text(post.description),
+                ),
               );
             },
           );

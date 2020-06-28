@@ -8,7 +8,6 @@ part of 'user.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
 }
@@ -31,20 +30,16 @@ const $User = _$UserTearOff();
 
 mixin _$User {
   String get id;
-
   String get username;
-
   String get avatarUrl;
 
   Map<String, dynamic> toJson();
-
   $UserCopyWith<User> get copyWith;
 }
 
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-
   $Res call({String id, String username, String avatarUrl});
 }
 
@@ -52,7 +47,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   _$UserCopyWithImpl(this._value, this._then);
 
   final User _value;
-
   // ignore: unused_field
   final $Res Function(User) _then;
 
@@ -73,7 +67,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
-
   @override
   $Res call({String id, String username, String avatarUrl});
 }
@@ -172,13 +165,10 @@ abstract class _User implements User {
 
   @override
   String get id;
-
   @override
   String get username;
-
   @override
   String get avatarUrl;
-
   @override
   _$UserCopyWith<_User> get copyWith;
 }

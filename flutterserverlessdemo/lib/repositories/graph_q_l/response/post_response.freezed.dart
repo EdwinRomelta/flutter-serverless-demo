@@ -8,7 +8,6 @@ part of 'post_response.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 PostResponse _$PostResponseFromJson(Map<String, dynamic> json) {
   return _PostResponse.fromJson(json);
 }
@@ -30,7 +29,6 @@ mixin _$PostResponse {
   List<Post> get posts;
 
   Map<String, dynamic> toJson();
-
   $PostResponseCopyWith<PostResponse> get copyWith;
 }
 
@@ -38,7 +36,6 @@ abstract class $PostResponseCopyWith<$Res> {
   factory $PostResponseCopyWith(
           PostResponse value, $Res Function(PostResponse) then) =
       _$PostResponseCopyWithImpl<$Res>;
-
   $Res call({List<Post> posts});
 }
 
@@ -46,7 +43,6 @@ class _$PostResponseCopyWithImpl<$Res> implements $PostResponseCopyWith<$Res> {
   _$PostResponseCopyWithImpl(this._value, this._then);
 
   final PostResponse _value;
-
   // ignore: unused_field
   final $Res Function(PostResponse) _then;
 
@@ -65,7 +61,6 @@ abstract class _$PostResponseCopyWith<$Res>
   factory _$PostResponseCopyWith(
           _PostResponse value, $Res Function(_PostResponse) then) =
       __$PostResponseCopyWithImpl<$Res>;
-
   @override
   $Res call({List<Post> posts});
 }
@@ -142,7 +137,6 @@ abstract class _PostResponse implements PostResponse {
 
   @override
   List<Post> get posts;
-
   @override
   _$PostResponseCopyWith<_PostResponse> get copyWith;
 }

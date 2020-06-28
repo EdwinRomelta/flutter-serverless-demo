@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterserverlessdemo/firebase_config.dart';
 import 'package:flutterserverlessdemo/screens/home_page.dart';
 import 'package:flutterserverlessdemo/screens/login_page.dart';
+import 'package:flutterserverlessdemo/screens/post_create_page.dart';
 import 'package:flutterserverlessdemo/screens/splash_page.dart';
 
 void main() {
@@ -12,11 +13,13 @@ void main() {
 const SPLASH = '/';
 const HOME = '/home';
 const LOGIN = '/login';
+const POST_CREATE = '/post/create';
 
 Map<String, WidgetBuilder> _routes = {
   SPLASH: (context) => SplashPage(),
   HOME: (context) => HomePage(),
   LOGIN: (context) => LoginPage(),
+  POST_CREATE: (context) => PostCreatePage(),
 };
 
 class App extends StatelessWidget {
