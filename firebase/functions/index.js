@@ -6,4 +6,5 @@ module.exports = {
     ...require("./account/register.js"),
     ...require("./account/sync.js"),
     ...require("./account/del.js"),
+    ...require("./posts/upload.js"),
   };
