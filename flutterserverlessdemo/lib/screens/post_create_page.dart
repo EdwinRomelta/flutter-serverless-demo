@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterserverlessdemo/screens/post_submit_page.dart';
+import 'package:flutterserverlessdemo/widgets/aspect_ratio_video.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 
@@ -18,9 +20,6 @@ class _PostCreatePageState extends State<PostCreatePage> {
   String _retrieveDataError;
 
   final ImagePicker _picker = ImagePicker();
-  final TextEditingController maxWidthController = TextEditingController();
-  final TextEditingController maxHeightController = TextEditingController();
-  final TextEditingController qualityController = TextEditingController();
 
   Future<void> _playVideo(PickedFile file) async {
     if (file != null && mounted) {
@@ -79,9 +78,6 @@ class _PostCreatePageState extends State<PostCreatePage> {
   @override
   void dispose() {
     _disposeVideoController();
-    maxWidthController.dispose();
-    maxHeightController.dispose();
-    qualityController.dispose();
     super.dispose();
   }
 
@@ -116,8 +112,6 @@ class _PostCreatePageState extends State<PostCreatePage> {
     }
     if (_pickedFile != null) {
       if (kIsWeb) {
-        // Why network?
-        // See https://pub.dev/packages/image_picker#getting-ready-for-the-web-platform
         return Image.network(_pickedFile.path);
       } else {
         return Image.file(File(_pickedFile.path));
@@ -162,7 +156,17 @@ class _PostCreatePageState extends State<PostCreatePage> {
         title: Text('Create Post'),
         actions: [
           FlatButton(
-            onPressed: _pickedFile != null ? () {} : null,
+            onPressed: _pickedFile != null
+                ? () {
+                    if (isVideo) {
+                      Navigator.of(context)
+                          .push(PostSubmitPage.route(videoFile: _pickedFile));
+                    } else {
+                      Navigator.of(context)
+                          .push(PostSubmitPage.route(imageFile: _pickedFile));
+                    }
+                  }
+                : null,
             child: Text('Next'),
           )
         ],
@@ -265,53 +269,3 @@ class _PostCreatePageState extends State<PostCreatePage> {
 
 typedef void OnPickImageCallback(
     double maxWidth, double maxHeight, int quality);
-
-class AspectRatioVideo extends StatefulWidget {
-  AspectRatioVideo(this.controller);
-
-  final VideoPlayerController controller;
-
-  @override
-  AspectRatioVideoState createState() => AspectRatioVideoState();
-}
-
-class AspectRatioVideoState extends State<AspectRatioVideo> {
-  VideoPlayerController get controller => widget.controller;
-  bool initialized = false;
-
-  void _onVideoControllerUpdate() {
-    if (!mounted) {
-      return;
-    }
-    if (initialized != controller.value.initialized) {
-      initialized = controller.value.initialized;
-      setState(() {});
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    controller.addListener(_onVideoControllerUpdate);
-  }
-
-  @override
-  void dispose() {
-    controller.removeListener(_onVideoControllerUpdate);
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (initialized) {
-      return Center(
-        child: AspectRatio(
-          aspectRatio: controller.value?.aspectRatio,
-          child: VideoPlayer(controller),
-        ),
-      );
-    } else {
-      return Container();
-    }
-  }
-}

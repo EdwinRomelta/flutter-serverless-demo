@@ -1,0 +1,15 @@
+mutation NewPost($fk_user: String!, $description: String!) {
+    insert_posts_one(object: {fk_user: $fk_user, description: $description}) {
+        created_at
+        description
+        id
+        image_url
+        updated_at
+        user {
+            avatar_url
+            email
+            id
+            username
+        }
+    }
+}
