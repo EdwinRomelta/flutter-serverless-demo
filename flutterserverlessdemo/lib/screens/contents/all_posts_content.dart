@@ -30,6 +30,9 @@ class _AllPostsContentState extends State<AllPostsContent> {
               final post = state.posts[index];
               return Card(
                 child: ListTile(
+                  title: post.imageUrl != null
+                      ? Image.network(post.imageUrl)
+                      : null,
                   subtitle: Text(post.description),
                 ),
               );

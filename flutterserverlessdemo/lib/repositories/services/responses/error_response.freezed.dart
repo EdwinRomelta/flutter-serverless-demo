@@ -8,7 +8,6 @@ part of 'error_response.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 ErrorResponse _$ErrorResponseFromJson(Map<String, dynamic> json) {
   return _ErrorResponse.fromJson(json);
 }
@@ -29,11 +28,9 @@ const $ErrorResponse = _$ErrorResponseTearOff();
 
 mixin _$ErrorResponse {
   bool get error;
-
   String get message;
 
   Map<String, dynamic> toJson();
-
   $ErrorResponseCopyWith<ErrorResponse> get copyWith;
 }
 
@@ -41,7 +38,6 @@ abstract class $ErrorResponseCopyWith<$Res> {
   factory $ErrorResponseCopyWith(
           ErrorResponse value, $Res Function(ErrorResponse) then) =
       _$ErrorResponseCopyWithImpl<$Res>;
-
   $Res call({bool error, String message});
 }
 
@@ -50,7 +46,6 @@ class _$ErrorResponseCopyWithImpl<$Res>
   _$ErrorResponseCopyWithImpl(this._value, this._then);
 
   final ErrorResponse _value;
-
   // ignore: unused_field
   final $Res Function(ErrorResponse) _then;
 
@@ -71,7 +66,6 @@ abstract class _$ErrorResponseCopyWith<$Res>
   factory _$ErrorResponseCopyWith(
           _ErrorResponse value, $Res Function(_ErrorResponse) then) =
       __$ErrorResponseCopyWithImpl<$Res>;
-
   @override
   $Res call({bool error, String message});
 }
@@ -161,10 +155,8 @@ abstract class _ErrorResponse implements ErrorResponse {
 
   @override
   bool get error;
-
   @override
   String get message;
-
   @override
   _$ErrorResponseCopyWith<_ErrorResponse> get copyWith;
 }

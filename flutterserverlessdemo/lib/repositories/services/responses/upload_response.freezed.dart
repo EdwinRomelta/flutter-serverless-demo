@@ -8,7 +8,6 @@ part of 'upload_response.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 UploadResponse _$UploadResponseFromJson(Map<String, dynamic> json) {
   return _UploadResponse.fromJson(json);
 }
@@ -30,7 +29,6 @@ mixin _$UploadResponse {
   List<UploadData> get data;
 
   Map<String, dynamic> toJson();
-
   $UploadResponseCopyWith<UploadResponse> get copyWith;
 }
 
@@ -38,7 +36,6 @@ abstract class $UploadResponseCopyWith<$Res> {
   factory $UploadResponseCopyWith(
           UploadResponse value, $Res Function(UploadResponse) then) =
       _$UploadResponseCopyWithImpl<$Res>;
-
   $Res call({List<UploadData> data});
 }
 
@@ -47,7 +44,6 @@ class _$UploadResponseCopyWithImpl<$Res>
   _$UploadResponseCopyWithImpl(this._value, this._then);
 
   final UploadResponse _value;
-
   // ignore: unused_field
   final $Res Function(UploadResponse) _then;
 
@@ -66,7 +62,6 @@ abstract class _$UploadResponseCopyWith<$Res>
   factory _$UploadResponseCopyWith(
           _UploadResponse value, $Res Function(_UploadResponse) then) =
       __$UploadResponseCopyWithImpl<$Res>;
-
   @override
   $Res call({List<UploadData> data});
 }
@@ -147,7 +142,6 @@ abstract class _UploadResponse implements UploadResponse {
 
   @override
   List<UploadData> get data;
-
   @override
   _$UploadResponseCopyWith<_UploadResponse> get copyWith;
 }
@@ -172,11 +166,9 @@ const $UploadData = _$UploadDataTearOff();
 
 mixin _$UploadData {
   String get path;
-
   String get url;
 
   Map<String, dynamic> toJson();
-
   $UploadDataCopyWith<UploadData> get copyWith;
 }
 
@@ -184,7 +176,6 @@ abstract class $UploadDataCopyWith<$Res> {
   factory $UploadDataCopyWith(
           UploadData value, $Res Function(UploadData) then) =
       _$UploadDataCopyWithImpl<$Res>;
-
   $Res call({String path, String url});
 }
 
@@ -192,7 +183,6 @@ class _$UploadDataCopyWithImpl<$Res> implements $UploadDataCopyWith<$Res> {
   _$UploadDataCopyWithImpl(this._value, this._then);
 
   final UploadData _value;
-
   // ignore: unused_field
   final $Res Function(UploadData) _then;
 
@@ -212,7 +202,6 @@ abstract class _$UploadDataCopyWith<$Res> implements $UploadDataCopyWith<$Res> {
   factory _$UploadDataCopyWith(
           _UploadData value, $Res Function(_UploadData) then) =
       __$UploadDataCopyWithImpl<$Res>;
-
   @override
   $Res call({String path, String url});
 }
@@ -301,10 +290,8 @@ abstract class _UploadData implements UploadData {
 
   @override
   String get path;
-
   @override
   String get url;
-
   @override
   _$UploadDataCopyWith<_UploadData> get copyWith;
 }

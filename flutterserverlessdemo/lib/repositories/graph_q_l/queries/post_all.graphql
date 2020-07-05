@@ -1,5 +1,5 @@
 query AllPost {
-    posts {
+    posts(order_by: {created_at: desc_nulls_last}) {
         user {
             avatar_url
             email
