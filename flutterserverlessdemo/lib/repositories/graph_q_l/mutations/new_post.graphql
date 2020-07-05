@@ -1,5 +1,5 @@
-mutation NewPost($fk_user: String!, $description: String!) {
-    insert_posts_one(object: {fk_user: $fk_user, description: $description}) {
+mutation NewPost($fk_user: String!, $description: String!, $image_url: String!) {
+    insert_posts_one(object: {fk_user: $fk_user, description: $description, image_url :$image_url}) {
         created_at
         description
         id

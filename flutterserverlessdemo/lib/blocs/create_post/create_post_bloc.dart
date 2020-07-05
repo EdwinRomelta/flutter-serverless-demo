@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/repositories/post_repository.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
 part 'create_post_event.dart';
-
 part 'create_post_state.dart';
 
 class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
@@ -28,10 +28,10 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
       CreatePostSubmitted event) async* {
     try {
       yield CreatePostInProgress();
-      final auth =
+      final post =
           await _postRepository.createPost(event.pickedFile, event.description);
-      if (auth != null) {
-        yield CreatePostSuccess();
+      if (post != null) {
+        yield CreatePostSuccess(post);
       } else {
         yield CreatePostFailure();
       }

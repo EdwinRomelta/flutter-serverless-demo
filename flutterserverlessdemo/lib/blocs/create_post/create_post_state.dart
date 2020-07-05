@@ -7,6 +7,10 @@ class CreatePostInitial extends CreatePostState {}
 
 class CreatePostInProgress extends CreatePostState {}
 
-class CreatePostSuccess extends CreatePostState {}
+class CreatePostSuccess extends CreatePostState {
+  final Post post;
+
+  CreatePostSuccess(this.post);
+}
 
 class CreatePostFailure extends CreatePostState {}

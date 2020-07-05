@@ -6,7 +6,9 @@ import 'package:flutterserverlessdemo/repositories/graph_q_l/mutations/new_post.
     as newPost;
 import 'package:flutterserverlessdemo/repositories/graph_q_l/queries/post_all.ast.g.dart'
     as postAll;
+import 'package:flutterserverlessdemo/repositories/graph_q_l/response/new_post_response.dart';
 import 'package:flutterserverlessdemo/repositories/graph_q_l/response/post_response.dart';
+import 'package:flutterserverlessdemo/repositories/services/firebase_service.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -27,15 +29,17 @@ class PostRepository {
   }
 
   Future<Post> createPost(PickedFile pickedFile, String description) async {
+    final response = await FirebaseService.instance.upload(pickedFile);
     final result = await _graphQLClient.mutate(MutationOptions(
       documentNode: newPost.document,
       variables: <String, dynamic>{
         "fk_user": (await FirebaseAuth.instance.currentUser()).uid,
-        "description": description
+        "description": description,
+        "image_url": response.body.data[0].url
       },
     ));
-    final postResponse =
-        PostResponse.fromJson(result.data as Map<String, dynamic>);
-    return postResponse.posts[0];
+    final newPostResponse =
+    NewPostResponse.fromJson(result.data as Map<String, dynamic>);
+    return newPostResponse.insertPostsOne;
   }
 }

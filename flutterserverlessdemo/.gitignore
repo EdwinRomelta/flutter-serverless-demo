@@ -47,3 +47,4 @@ lib/firebase_config.dart
 !/schema.graphql
 /.fvm/flutter_sdk/packages/flutter_tools/gradle/
 /.fvm/flutter_sdk/packages/flutter_tools/gradle/
+/.fvm/flutter_sdk/packages/flutter_tools/gradle/

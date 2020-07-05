@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/screens/post_submit_page.dart';
 import 'package:flutterserverlessdemo/widgets/aspect_ratio_video.dart';
 import 'package:image_picker/image_picker.dart';
@@ -157,13 +158,17 @@ class _PostCreatePageState extends State<PostCreatePage> {
         actions: [
           FlatButton(
             onPressed: _pickedFile != null
-                ? () {
+                ? () async {
+                    Post post;
                     if (isVideo) {
-                      Navigator.of(context)
-                          .push(PostSubmitPage.route(videoFile: _pickedFile));
+//                      post = await Navigator.of(context)
+//                          .push(PostSubmitPage.route(videoFile: _pickedFile));
                     } else {
-                      Navigator.of(context)
+                      post = await Navigator.of(context)
                           .push(PostSubmitPage.route(imageFile: _pickedFile));
+                    }
+                    if (post != null) {
+                      Navigator.of(context).pop(post);
                     }
                   }
                 : null,
