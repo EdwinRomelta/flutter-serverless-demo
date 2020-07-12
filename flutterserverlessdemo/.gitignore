@@ -51,3 +51,4 @@ lib/firebase_config.dart
 /.fvm/
 /.graphqlconfig
 /schema.graphql
+/.firebase/

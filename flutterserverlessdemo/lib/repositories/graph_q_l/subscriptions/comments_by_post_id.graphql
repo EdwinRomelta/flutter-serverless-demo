@@ -1,0 +1,14 @@
+subscription CommentsById($postId: uuid!) {
+    comments(where: {fk_post: {_eq: $postId}}) {
+        id
+        text
+        created_at
+        user {
+            avatar_url
+            created_at
+            username
+            id
+            email
+        }
+    }
+}

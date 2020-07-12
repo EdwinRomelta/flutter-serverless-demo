@@ -6,11 +6,23 @@ final HttpLink _httpLink = HttpLink(
 );
 
 final WebSocketLink _websocketLink = WebSocketLink(
-  url: 'wss://flutter-serverless-demo.herokuapp.com/v1/graphql',
+  url: 'ws://flutter-serverless-demo.herokuapp.com/v1/graphql',
   config: SocketClientConfig(
-    autoReconnect: true,
-    inactivityTimeout: Duration(seconds: 30),
-  ),
+      autoReconnect: true,
+      inactivityTimeout: Duration(seconds: 30),
+      initPayload: () async {
+        final user = await FirebaseAuth.instance.currentUser();
+        if (user != null) {
+          final idToken = await user.getIdToken();
+          final token = idToken?.token;
+          if (token != null) {
+            return {
+              "headers": {"Authorization": 'Bearer $token'}
+            };
+          }
+        }
+        return null;
+      }),
 );
 
 final AuthLink _authLink = AuthLink(
