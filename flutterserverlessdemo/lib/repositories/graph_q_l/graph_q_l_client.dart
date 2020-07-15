@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 final HttpLink _httpLink = HttpLink(
-  uri: 'http://flutter-serverless-demo.herokuapp.com/v1/graphql',
+  uri: 'https://flutter-serverless-demo.herokuapp.com/v1/graphql',
 );
 
 final WebSocketLink _websocketLink = WebSocketLink(
-  url: 'ws://flutter-serverless-demo.herokuapp.com/v1/graphql',
+  url: 'wss://flutter-serverless-demo.herokuapp.com/v1/graphql',
   config: SocketClientConfig(
       autoReconnect: true,
       inactivityTimeout: Duration(seconds: 30),
