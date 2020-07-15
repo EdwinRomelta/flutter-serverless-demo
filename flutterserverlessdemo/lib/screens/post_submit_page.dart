@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/create_post/create_post_bloc.dart';
-import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/repositories/graph_q_l/graph_q_l_client.dart';
 import 'package:flutterserverlessdemo/repositories/post_repository.dart';
 import 'package:flutterserverlessdemo/widgets/aspect_ratio_video.dart';
@@ -14,13 +13,6 @@ import 'package:video_player/video_player.dart';
 class PostSubmitPage extends StatefulWidget {
   final PickedFile imageFile;
   final PickedFile videoFile;
-
-  static Route<Post> route({PickedFile imageFile, PickedFile videoFile}) =>
-      MaterialPageRoute(
-          builder: (context) => PostSubmitPage(
-                imageFile: imageFile,
-                videoFile: videoFile,
-              ));
 
   PostSubmitPage({this.imageFile, this.videoFile});
 

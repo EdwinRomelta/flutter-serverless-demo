@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/comments/comments_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/create_comment/create_comment_bloc.dart';
-import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/repositories/comment_repository.dart';
 import 'package:flutterserverlessdemo/repositories/graph_q_l/graph_q_l_client.dart';
 
 class CommentContent extends StatefulWidget {
-  final Post post;
+  final String postId;
 
-  CommentContent({@required this.post});
+  CommentContent({@required this.postId});
 
   @override
   _CommentContentState createState() => _CommentContentState();
@@ -23,7 +22,7 @@ class _CommentContentState extends State<CommentContent> {
   @override
   void initState() {
     super.initState();
-    _commentBloc..add(CommentInitialized(widget.post));
+    _commentBloc..add(CommentInitialized(widget.postId));
   }
 
   @override
@@ -74,8 +73,9 @@ class _CommentContentState extends State<CommentContent> {
                             onTap: (state is CreateCommentInProgress)
                                 ? null
                                 : () {
-                                    _newCommentBloc.add(CreateCommentSubmitted(
-                                        widget.post, _commentController.text));
+                              _newCommentBloc.add(CreateCommentSubmitted(
+                                        widget.postId,
+                                        _commentController.text));
                                   },
                             child: Icon(Icons.send)),
                       ],

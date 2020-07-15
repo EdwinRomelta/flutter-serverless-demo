@@ -3,12 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutterserverlessdemo/models/comment.dart';
-import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/repositories/comment_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'comments_event.dart';
-
 part 'comments_state.dart';
 
 class CommentsBloc extends Bloc<CommentsEvent, CommentsState> {
@@ -35,7 +33,7 @@ class CommentsBloc extends Bloc<CommentsEvent, CommentsState> {
     try {
       yield CommentsInProgress();
       commentsSubscription = _commentRepository
-          .getCommentByPostId(event.post.id)
+          .getCommentByPostId(event.postId)
           .listen((event) => add(CommentFetched(event)));
     } catch (e) {
       yield CommentsFailure();

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'upload_response.dart';
 
@@ -15,6 +15,7 @@ UploadResponse _$UploadResponseFromJson(Map<String, dynamic> json) {
 class _$UploadResponseTearOff {
   const _$UploadResponseTearOff();
 
+// ignore: unused_element
   _UploadResponse call({@required List<UploadData> data}) {
     return _UploadResponse(
       data: data,
@@ -153,6 +154,7 @@ UploadData _$UploadDataFromJson(Map<String, dynamic> json) {
 class _$UploadDataTearOff {
   const _$UploadDataTearOff();
 
+// ignore: unused_element
   _UploadData call({@required String path, @required String url}) {
     return _UploadData(
       path: path,

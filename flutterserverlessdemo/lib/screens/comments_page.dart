@@ -1,14 +1,11 @@
+import 'package:auto_route/auto_route_annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/screens/contents/comment_content.dart';
 
 class CommentsPage extends StatelessWidget {
-  final Post post;
+  final String postId;
 
-  static Route<void> route({Post post}) =>
-      MaterialPageRoute(builder: (context) => CommentsPage._(post));
-
-  CommentsPage._(this.post);
+  CommentsPage(@PathParam() this.postId);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +14,7 @@ class CommentsPage extends StatelessWidget {
         title: Text('Comment'),
       ),
       body: CommentContent(
-        post: post,
+        postId: postId,
       ),
     );
   }

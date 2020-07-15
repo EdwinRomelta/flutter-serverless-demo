@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterserverlessdemo/main.dart';
+import 'package:flutterserverlessdemo/component/route.gr.dart';
 import 'package:flutterserverlessdemo/screens/contents/all_posts_content.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +12,8 @@ class HomePage extends StatelessWidget {
       ),
       body: AllPostsContent(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).pushNamed(POST_CREATE),
+        onPressed: () =>
+            ExtendedNavigator.of(context).pushNamed(Routes.postCreatePage),
         child: Icon(Icons.add),
       ),
     );

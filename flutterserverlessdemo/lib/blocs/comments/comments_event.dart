@@ -4,9 +4,9 @@ part of 'comments_bloc.dart';
 abstract class CommentsEvent {}
 
 class CommentInitialized extends CommentsEvent {
-  final Post post;
+  final String postId;
 
-  CommentInitialized(this.post);
+  CommentInitialized(this.postId);
 }
 
 class CommentFetched extends CommentsEvent {

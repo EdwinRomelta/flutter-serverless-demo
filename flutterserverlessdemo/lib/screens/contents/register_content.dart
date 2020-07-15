@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/register/register_bloc.dart';
-import 'package:flutterserverlessdemo/main.dart';
+import 'package:flutterserverlessdemo/component/route.gr.dart';
 import 'package:flutterserverlessdemo/repositories/session_repository.dart';
 
 class RegisterContent extends StatefulWidget {
@@ -22,7 +23,7 @@ class _RegisterContentState extends State<RegisterContent> {
         bloc: _registerBloc,
         listener: (context, state) {
           if (state is RegisterSuccess) {
-            Navigator.of(context).pushReplacementNamed(HOME);
+            ExtendedNavigator.of(context).pushReplacementNamed(Routes.homePage);
           }
         },
         buildWhen: (previous, current) => current is RegisterInitial,
@@ -37,7 +38,7 @@ class _RegisterContentState extends State<RegisterContent> {
               borderRadius: BorderRadius.circular(5.0),
             ),
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text("Register to see photos and videos from your friends"),
               SizedBox(
                 height: 64,
@@ -63,7 +64,7 @@ class _RegisterContentState extends State<RegisterContent> {
                 child: RaisedButton(
                     color: Colors.blue,
                     child:
-                        Text("Register", style: TextStyle(color: Colors.white)),
+                    Text("Register", style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       _registerBloc.add(
                         RegisterSubmitted(
@@ -84,8 +85,8 @@ class _RegisterContentState extends State<RegisterContent> {
                       TextSpan(
                         text: 'Login',
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () =>
-                              Navigator.of(context).pushReplacementNamed(LOGIN),
+                          ..onTap = () => ExtendedNavigator.of(context)
+                              .pushReplacementNamed(Routes.loginPage),
                         style: TextStyle(color: Colors.blue),
                       ),
                     ],

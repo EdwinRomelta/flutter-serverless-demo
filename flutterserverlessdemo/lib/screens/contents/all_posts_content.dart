@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/my_post/my_post_bloc.dart';
+import 'package:flutterserverlessdemo/component/route.gr.dart';
 import 'package:flutterserverlessdemo/repositories/graph_q_l/graph_q_l_client.dart';
 import 'package:flutterserverlessdemo/repositories/post_repository.dart';
-import 'package:flutterserverlessdemo/screens/comments_page.dart';
 
 class AllPostsContent extends StatefulWidget {
   @override
@@ -31,8 +32,9 @@ class _AllPostsContentState extends State<AllPostsContent> {
               final post = state.posts[index];
               return Card(
                 child: ListTile(
-                  onTap: () => Navigator.of(context)
-                      .push(CommentsPage.route(post: post)),
+                  onTap: () => ExtendedNavigator.of(context)
+                      .pushReplacementNamed(
+                          Routes.commentsPage(postId: post.id)),
                   title: post.imageUrl != null
                       ? Image.network(post.imageUrl)
                       : null,

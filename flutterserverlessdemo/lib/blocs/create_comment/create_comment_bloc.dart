@@ -2,12 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutterserverlessdemo/models/comment.dart';
-import 'package:flutterserverlessdemo/models/post.dart';
 import 'package:flutterserverlessdemo/repositories/comment_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'create_comment_event.dart';
-
 part 'create_comment_state.dart';
 
 class CreateCommentBloc extends Bloc<CreateCommentEvent, CreateCommentState> {
@@ -31,7 +29,7 @@ class CreateCommentBloc extends Bloc<CreateCommentEvent, CreateCommentState> {
       yield CreateCommentInProgress();
       final comment = await _commentRepository.createComment(
         event.text,
-        event.post.id,
+        event.postId,
       );
       if (comment != null) {
         yield CreateCommentSuccess(comment);

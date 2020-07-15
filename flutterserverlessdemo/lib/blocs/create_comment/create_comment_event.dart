@@ -4,11 +4,11 @@ part of 'create_comment_bloc.dart';
 abstract class CreateCommentEvent {}
 
 class CreateCommentSubmitted extends CreateCommentEvent {
-  final Post post;
+  final String postId;
   final String text;
 
-  CreateCommentSubmitted(this.post, this.text);
+  CreateCommentSubmitted(this.postId, this.text);
 
   @override
-  String toString() => 'CreateCommentSubmitted{post: $post, text: $text}';
+  String toString() => 'CreateCommentSubmitted{postId: $postId, text: $text}';
 }

@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterserverlessdemo/component/route.gr.dart';
 import 'package:flutterserverlessdemo/models/post.dart';
-import 'package:flutterserverlessdemo/screens/post_submit_page.dart';
 import 'package:flutterserverlessdemo/widgets/aspect_ratio_video.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
@@ -164,11 +165,13 @@ class _PostCreatePageState extends State<PostCreatePage> {
 //                      post = await Navigator.of(context)
 //                          .push(PostSubmitPage.route(videoFile: _pickedFile));
                     } else {
-                      post = await Navigator.of(context)
-                          .push(PostSubmitPage.route(imageFile: _pickedFile));
+                      post = await ExtendedNavigator.of(context).pushNamed(
+                          Routes.postSubmitPage,
+                          arguments:
+                              PostSubmitPageArguments(imageFile: _pickedFile));
                     }
                     if (post != null) {
-                      Navigator.of(context).pop(post);
+                      ExtendedNavigator.of(context).pop(post);
                     }
                   }
                 : null,
@@ -179,32 +182,32 @@ class _PostCreatePageState extends State<PostCreatePage> {
       body: Center(
         child: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
             ? FutureBuilder<void>(
-                future: retrieveLostData(),
-                builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.none:
-                    case ConnectionState.waiting:
-                      return const Text(
-                        'You have not yet picked an image.',
-                        textAlign: TextAlign.center,
-                      );
-                    case ConnectionState.done:
-                      return isVideo ? _previewVideo() : _previewImage();
-                    default:
-                      if (snapshot.hasError) {
-                        return Text(
-                          'Pick image/video error: ${snapshot.error}}',
-                          textAlign: TextAlign.center,
-                        );
-                      } else {
-                        return const Text(
-                          'You have not yet picked an image.',
-                          textAlign: TextAlign.center,
-                        );
-                      }
-                  }
-                },
-              )
+          future: retrieveLostData(),
+          builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+              case ConnectionState.waiting:
+                return const Text(
+                  'You have not yet picked an image.',
+                  textAlign: TextAlign.center,
+                );
+              case ConnectionState.done:
+                return isVideo ? _previewVideo() : _previewImage();
+              default:
+                if (snapshot.hasError) {
+                  return Text(
+                    'Pick image/video error: ${snapshot.error}}',
+                    textAlign: TextAlign.center,
+                  );
+                } else {
+                  return const Text(
+                    'You have not yet picked an image.',
+                    textAlign: TextAlign.center,
+                  );
+                }
+            }
+          },
+        )
             : (isVideo ? _previewVideo() : _previewImage()),
       ),
       floatingActionButton: Column(
@@ -272,5 +275,5 @@ class _PostCreatePageState extends State<PostCreatePage> {
   }
 }
 
-typedef void OnPickImageCallback(
-    double maxWidth, double maxHeight, int quality);
+typedef void OnPickImageCallback(double maxWidth, double maxHeight,
+    int quality);
