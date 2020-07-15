@@ -25,7 +25,7 @@ class SessionBloc extends Bloc<SessionEvent, SessionState> {
   Stream<SessionState> _mapSessionCheckToState(SessionCheck event) async* {
     try {
       yield SessionInProgress();
-      final user = await _sessionRepository.startUser();
+      final user = await _sessionRepository.loggedUser();
       if (user != null) {
         yield SessionSuccess();
       } else {

@@ -8,7 +8,6 @@ part of 'comment.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 Comment _$CommentFromJson(Map<String, dynamic> json) {
   return _Comment.fromJson(json);
 }
@@ -35,22 +34,17 @@ const $Comment = _$CommentTearOff();
 
 mixin _$Comment {
   String get id;
-
   String get text;
-
   DateTime get createdAt;
-
   User get user;
 
   Map<String, dynamic> toJson();
-
   $CommentCopyWith<Comment> get copyWith;
 }
 
 abstract class $CommentCopyWith<$Res> {
   factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
       _$CommentCopyWithImpl<$Res>;
-
   $Res call({String id, String text, DateTime createdAt, User user});
 
   $UserCopyWith<$Res> get user;
@@ -60,7 +54,6 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
   _$CommentCopyWithImpl(this._value, this._then);
 
   final Comment _value;
-
   // ignore: unused_field
   final $Res Function(Comment) _then;
 
@@ -94,7 +87,6 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
 abstract class _$CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
   factory _$CommentCopyWith(_Comment value, $Res Function(_Comment) then) =
       __$CommentCopyWithImpl<$Res>;
-
   @override
   $Res call({String id, String text, DateTime createdAt, User user});
 
@@ -211,16 +203,12 @@ abstract class _Comment implements Comment {
 
   @override
   String get id;
-
   @override
   String get text;
-
   @override
   DateTime get createdAt;
-
   @override
   User get user;
-
   @override
   _$CommentCopyWith<_Comment> get copyWith;
 }

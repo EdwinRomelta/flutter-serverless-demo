@@ -1,0 +1,12 @@
+mutation NewComment($text: String!, $fk_post: uuid!, $fk_user: String!) {
+    insert_comments_one(object: {text: $text, fk_user: $fk_user, fk_post: $fk_post}) {
+        id
+        text
+        user {
+            avatar_url
+            username
+            id
+        }
+        created_at
+    }
+}

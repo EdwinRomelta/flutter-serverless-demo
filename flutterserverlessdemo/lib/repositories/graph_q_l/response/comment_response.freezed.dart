@@ -8,7 +8,6 @@ part of 'comment_response.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 CommentResponse _$CommentResponseFromJson(Map<String, dynamic> json) {
   return _CommentResponse.fromJson(json);
 }
@@ -30,7 +29,6 @@ mixin _$CommentResponse {
   List<Comment> get comments;
 
   Map<String, dynamic> toJson();
-
   $CommentResponseCopyWith<CommentResponse> get copyWith;
 }
 
@@ -38,7 +36,6 @@ abstract class $CommentResponseCopyWith<$Res> {
   factory $CommentResponseCopyWith(
           CommentResponse value, $Res Function(CommentResponse) then) =
       _$CommentResponseCopyWithImpl<$Res>;
-
   $Res call({List<Comment> comments});
 }
 
@@ -47,7 +44,6 @@ class _$CommentResponseCopyWithImpl<$Res>
   _$CommentResponseCopyWithImpl(this._value, this._then);
 
   final CommentResponse _value;
-
   // ignore: unused_field
   final $Res Function(CommentResponse) _then;
 
@@ -67,7 +63,6 @@ abstract class _$CommentResponseCopyWith<$Res>
   factory _$CommentResponseCopyWith(
           _CommentResponse value, $Res Function(_CommentResponse) then) =
       __$CommentResponseCopyWithImpl<$Res>;
-
   @override
   $Res call({List<Comment> comments});
 }
@@ -151,7 +146,6 @@ abstract class _CommentResponse implements CommentResponse {
 
   @override
   List<Comment> get comments;
-
   @override
   _$CommentResponseCopyWith<_CommentResponse> get copyWith;
 }

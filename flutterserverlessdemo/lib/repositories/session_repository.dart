@@ -2,7 +2,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SessionRepository {
-  Future<FirebaseUser> startUser() async {
+  Future<FirebaseUser> loggedUser() async {
     final user = await FirebaseAuth.instance.currentUser();
     return user;
   }
