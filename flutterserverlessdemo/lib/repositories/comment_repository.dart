@@ -9,7 +9,9 @@ import 'package:flutterserverlessdemo/repositories/graph_q_l/response/new_commen
 import 'package:flutterserverlessdemo/repositories/graph_q_l/subscriptions/comments_by_post_id.ast.g.dart'
     as commentByPostId;
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class CommentRepository {
   final GraphQLClient _graphQLClient;
 

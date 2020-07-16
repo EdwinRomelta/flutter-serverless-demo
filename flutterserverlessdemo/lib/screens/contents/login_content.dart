@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/login/login_bloc.dart';
 import 'package:flutterserverlessdemo/component/route.gr.dart';
-import 'package:flutterserverlessdemo/repositories/session_repository.dart';
+import 'package:flutterserverlessdemo/main.dart';
 
 class LoginContent extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class LoginContent extends StatefulWidget {
 }
 
 class _LoginContentState extends State<LoginContent> {
-  final _loginBloc = LoginBloc(SessionRepository());
+  final _loginBloc = LoginBloc(injector.get());
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 

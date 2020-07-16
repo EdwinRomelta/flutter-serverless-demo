@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/session/session_bloc.dart';
 import 'package:flutterserverlessdemo/component/route.gr.dart';
-import 'package:flutterserverlessdemo/repositories/session_repository.dart';
+import 'package:flutterserverlessdemo/main.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final _sessionBloc = SessionBloc(SessionRepository());
+  final _sessionBloc = SessionBloc(injector.get());
 
   @override
   void initState() {

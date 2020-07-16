@@ -11,11 +11,14 @@ import 'package:flutterserverlessdemo/repositories/graph_q_l/response/post_respo
 import 'package:flutterserverlessdemo/repositories/services/firebase_service.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class PostRepository {
+  final FirebaseService _firebaseService;
   final GraphQLClient _graphQLClient;
 
-  PostRepository(this._graphQLClient);
+  PostRepository(this._firebaseService, this._graphQLClient);
 
   Future<List<Post>> getAllPost() async {
     final result = await _graphQLClient.query(WatchQueryOptions(
@@ -24,12 +27,12 @@ class PostRepository {
         fetchPolicy: FetchPolicy.networkOnly));
 
     final postResponse =
-        PostResponse.fromJson(result.data as Map<String, dynamic>);
+    PostResponse.fromJson(result.data as Map<String, dynamic>);
     return postResponse.posts;
   }
 
   Future<Post> createPost(PickedFile pickedFile, String description) async {
-    final response = await FirebaseService.instance.upload(pickedFile);
+    final response = await _firebaseService.upload(pickedFile);
     final result = await _graphQLClient.mutate(MutationOptions(
       documentNode: newPost.document,
       variables: <String, dynamic>{
@@ -39,7 +42,7 @@ class PostRepository {
       },
     ));
     final newPostResponse =
-    NewPostResponse.fromJson(result.data as Map<String, dynamic>);
+        NewPostResponse.fromJson(result.data as Map<String, dynamic>);
     return newPostResponse.insertPostsOne;
   }
 }

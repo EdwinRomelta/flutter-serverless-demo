@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/my_post/my_post_bloc.dart';
 import 'package:flutterserverlessdemo/component/route.gr.dart';
-import 'package:flutterserverlessdemo/repositories/graph_q_l/graph_q_l_client.dart';
-import 'package:flutterserverlessdemo/repositories/post_repository.dart';
+import 'package:flutterserverlessdemo/main.dart';
 
 class AllPostsContent extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class AllPostsContent extends StatefulWidget {
 }
 
 class _AllPostsContentState extends State<AllPostsContent> {
-  final _myPostBloc = MyPostBloc(PostRepository(graphQLClient));
+  final _myPostBloc = MyPostBloc(injector.get());
 
   @override
   void initState() {

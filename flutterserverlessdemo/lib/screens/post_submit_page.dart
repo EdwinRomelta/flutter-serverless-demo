@@ -4,8 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/create_post/create_post_bloc.dart';
-import 'package:flutterserverlessdemo/repositories/graph_q_l/graph_q_l_client.dart';
-import 'package:flutterserverlessdemo/repositories/post_repository.dart';
+import 'package:flutterserverlessdemo/main.dart';
 import 'package:flutterserverlessdemo/widgets/aspect_ratio_video.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
@@ -21,7 +20,7 @@ class PostSubmitPage extends StatefulWidget {
 }
 
 class _PostSubmitPageState extends State<PostSubmitPage> {
-  final _createPostBloc = CreatePostBloc(PostRepository(graphQLClient));
+  final _createPostBloc = CreatePostBloc(injector.get());
   final _descriptionController = TextEditingController();
   VideoPlayerController _controller;
 

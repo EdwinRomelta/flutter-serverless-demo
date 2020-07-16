@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/register/register_bloc.dart';
 import 'package:flutterserverlessdemo/component/route.gr.dart';
-import 'package:flutterserverlessdemo/repositories/session_repository.dart';
+import 'package:flutterserverlessdemo/main.dart';
 
 class RegisterContent extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class RegisterContent extends StatefulWidget {
 }
 
 class _RegisterContentState extends State<RegisterContent> {
-  final _registerBloc = RegisterBloc(SessionRepository());
+  final _registerBloc = RegisterBloc(injector.get());
   final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();

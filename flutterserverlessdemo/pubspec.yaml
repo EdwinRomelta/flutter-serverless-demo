@@ -34,10 +34,12 @@ dependencies:
   firebase_auth: ^0.16.1
   flutter_bloc: ^4.0.1
   freezed_annotation: ^0.11.0
+  get_it: 4.0.2
   gql: 0.12.2
   graphql_flutter: ^3.1.0-beta.1
   image_picker: ^0.6.7+4
   image_picker_for_web: ^0.1.0+1
+  injectable: 0.4.0+1
   json_annotation: ^3.0.1
   video_player: ^0.10.11+1
 
@@ -49,6 +51,7 @@ dev_dependencies:
   chopper_generator: 3.0.4
   freezed: ^0.11.2
   gql_code_gen: ^0.1.5
+  injectable_generator: 0.4.1
   json_serializable: ^3.3.0
 
 # For information on the generic Dart part of this file, see the

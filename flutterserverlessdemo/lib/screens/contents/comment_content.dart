@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/comments/comments_bloc.dart';
 import 'package:flutterserverlessdemo/blocs/create_comment/create_comment_bloc.dart';
-import 'package:flutterserverlessdemo/repositories/comment_repository.dart';
-import 'package:flutterserverlessdemo/repositories/graph_q_l/graph_q_l_client.dart';
+import 'package:flutterserverlessdemo/main.dart';
 
 class CommentContent extends StatefulWidget {
   final String postId;
@@ -16,8 +15,8 @@ class CommentContent extends StatefulWidget {
 
 class _CommentContentState extends State<CommentContent> {
   final _commentController = TextEditingController();
-  final _commentBloc = CommentsBloc(CommentRepository(graphQLClient));
-  final _newCommentBloc = CreateCommentBloc(CommentRepository(graphQLClient));
+  final _commentBloc = CommentsBloc(injector.get());
+  final _newCommentBloc = CreateCommentBloc(injector.get());
 
   @override
   void initState() {
