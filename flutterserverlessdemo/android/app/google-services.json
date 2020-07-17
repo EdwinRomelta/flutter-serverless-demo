@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "226238897179",
+    "firebase_url": "https://flutter-serverless-demo.firebaseio.com",
+    "project_id": "flutter-serverless-demo",
+    "storage_bucket": "flutter-serverless-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226238897179:android:03c5226512f1bc14ae6cbe",
+        "android_client_info": {
+          "package_name": "com.edwinromelta.flutterserverlessdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226238897179-kulas1955qqe09bkmrm6q4bh7qb3jcsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrc-0hDcOo0QsEWQMyTXI6_aupQTYjW64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226238897179-kulas1955qqe09bkmrm6q4bh7qb3jcsn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,8 @@ class SessionRepository {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-  Future<AuthResult> register(String username, String email, String password) async {
+  Future<AuthResult> register(
+      String username, String email, String password) async {
     final register = CloudFunctions.instance.getHttpsCallable(
       functionName: 'registerUser',
     );

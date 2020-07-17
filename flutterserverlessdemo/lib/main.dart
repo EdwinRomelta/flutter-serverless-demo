@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterserverlessdemo/component/route.gr.dart';
-import 'package:flutterserverlessdemo/firebase_config.dart';
 import 'package:flutterserverlessdemo/main.iconfig.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
@@ -12,9 +11,12 @@ final injector = GetIt.instance;
 void configureDependencies() => $initGetIt(injector);
 
 void main() {
+  mainDelegate();
+}
+
+void mainDelegate() {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  initialize();
   runApp(App());
 }
 
